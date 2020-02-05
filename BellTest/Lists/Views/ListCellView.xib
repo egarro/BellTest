@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="ListCellView" customModule="BellTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="170" height="190"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oe2-tL-fpf">
+                    <rect key="frame" x="0.0" y="0.0" width="170" height="190"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgO-Hg-J8L">
+                    <rect key="frame" x="0.0" y="0.0" width="170" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="aAt-iw-oNK"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHU-zs-qsW">
+                    <rect key="frame" x="0.0" y="170" width="170" height="20"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.49793683978873238" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="YKd-V0-qqb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="2Xg-HD-1Wd">
+                    <rect key="frame" x="66.5" y="76.5" width="37" height="37"/>
+                    <color key="color" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Oe2-tL-fpf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2Ib-A2-UZ0"/>
+                <constraint firstItem="VgO-Hg-J8L" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6tH-Ga-h5z"/>
+                <constraint firstAttribute="trailing" secondItem="JHU-zs-qsW" secondAttribute="trailing" id="BfV-SX-Sb2"/>
+                <constraint firstAttribute="trailing" secondItem="VgO-Hg-J8L" secondAttribute="trailing" id="E7N-dw-H9C"/>
+                <constraint firstItem="VgO-Hg-J8L" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="FTq-vN-LC2"/>
+                <constraint firstItem="Oe2-tL-fpf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="OtK-Fo-hrX"/>
+                <constraint firstItem="2Xg-HD-1Wd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Owe-Ue-O0R"/>
+                <constraint firstAttribute="bottom" secondItem="Oe2-tL-fpf" secondAttribute="bottom" id="VPH-u0-Ofg"/>
+                <constraint firstItem="2Xg-HD-1Wd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Weh-hP-NMx"/>
+                <constraint firstAttribute="trailing" secondItem="Oe2-tL-fpf" secondAttribute="trailing" id="mIV-ts-X4B"/>
+                <constraint firstItem="JHU-zs-qsW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xQ7-6G-qBq"/>
+                <constraint firstAttribute="bottom" secondItem="JHU-zs-qsW" secondAttribute="bottom" id="ynF-un-8BB"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="indicator" destination="2Xg-HD-1Wd" id="hh1-Sf-YPU"/>
+                <outlet property="listIcon" destination="Oe2-tL-fpf" id="opK-E2-xox"/>
+                <outlet property="listNameLabel" destination="VgO-Hg-J8L" id="LtV-zu-RY6"/>
+                <outlet property="numberOfSongsLabel" destination="JHU-zs-qsW" id="Uca-pV-QI9"/>
+            </connections>
+            <point key="canvasLocation" x="-118.84057971014494" y="-19.419642857142858"/>
+        </view>
+    </objects>
+</document>
