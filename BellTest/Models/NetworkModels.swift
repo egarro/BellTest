@@ -9,7 +9,7 @@
 import Foundation
 import GoogleAPIClientForREST
 
-struct PlaylistInfo {
+struct PlaylistInfo: Encodable, Decodable  {
     let identifier: String
     let title: String
     let numberOfItems: Int
@@ -23,15 +23,17 @@ struct PlaylistInfo {
     }
 }
 
-struct Playlists {
+struct Playlists: Encodable, Decodable {
+    let etag: String
     let lists: [PlaylistInfo]
     
     init(_ pls: GTLRYouTube_PlaylistListResponse) {
         lists = pls.items?.map({ PlaylistInfo.init($0) }) ?? []
+        etag = pls.eTag ?? ""
     }
 }
 
-struct Playlist {
+struct Playlist: Encodable, Decodable{
     
     let etag: String
     let nextPage: String
@@ -58,7 +60,7 @@ struct Playlist {
     }
 }
 
-struct Item {
+struct Item: Encodable, Decodable {
     let etag: String
     let id: String
     let title: String

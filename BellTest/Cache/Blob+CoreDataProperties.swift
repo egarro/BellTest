@@ -16,6 +16,6 @@ extension Blob {
         return NSFetchRequest<Blob>(entityName: "Blob")
     }
 
-    @NSManaged public var data: Data?
+    @NSManaged public var data: Data
 
 }

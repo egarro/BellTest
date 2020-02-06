@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="18G103" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="Blob" representedClassName=".Blob" syncable="YES" codeGenerationType="class">
+        <attribute name="data" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+    </entity>
+    <entity name="ETag" representedClassName=".ETag" syncable="YES" codeGenerationType="class">
+        <attribute name="headerValue" attributeType="String"/>
+        <attribute name="key" attributeType="String"/>
+        <relationship name="relationship" maxCount="1" deletionRule="Nullify" destinationEntity="Blob"/>
+    </entity>
+    <elements>
+        <element name="ETag" positionX="-275.3125" positionY="-26.30078125" width="128" height="88"/>
+        <element name="Blob" positionX="-46.140625" positionY="24.1796875" width="128" height="58"/>
+    </elements>
 </model>

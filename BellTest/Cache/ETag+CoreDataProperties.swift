@@ -16,7 +16,8 @@ extension ETag {
         return NSFetchRequest<ETag>(entityName: "ETag")
     }
 
-    @NSManaged public var etag: String?
-    @NSManaged public var relationship: Blob?
+    @NSManaged public var key: String
+    @NSManaged public var headerValue: String
+    @NSManaged public var relationship: Blob
 
 }

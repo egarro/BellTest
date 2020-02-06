@@ -9,11 +9,11 @@
 import Foundation
 import GoogleAPIClientForREST
 
-typealias PlaylistsClosure = (Playlists)->Void
-typealias PlaylistClosure  = (Playlist)->Void
+typealias PlaylistsClosure = (Result<Playlists,NetworkError>)->Void
+typealias PlaylistClosure  = (Result<Playlist,NetworkError>)->Void
 
 protocol PlaylistsFetcher {
-    func fetchPlaylists(completion: @escaping PlaylistsClosure)
+    func fetchPlaylists(etag: String?, completion: @escaping PlaylistsClosure)
 }
 
 protocol PlaylistFetcher {
@@ -28,6 +28,13 @@ protocol AuthenticationReceiver {
     func setAuthorizer(authorizer: GTMFetcherAuthorizationProtocol?)
 }
 
+
+enum NetworkError: Error {
+    case unchangedRecordUseCache
+    case undecodableETag
+    case unknown
+}
+
 @objc
 class NetworkService: NSObject, PlaylistsFetcher, PlaylistFetcher, AuthenticationReceiver {
     private let service = GTLRYouTubeService()
@@ -35,11 +42,13 @@ class NetworkService: NSObject, PlaylistsFetcher, PlaylistFetcher, Authenticatio
     private var playlistCB: PlaylistClosure?
     
 // MARK: All Playlists:
-    
-    func fetchPlaylists(completion: @escaping PlaylistsClosure) {
+
+    func fetchPlaylists(etag: String? = nil, completion: @escaping PlaylistsClosure) {
         playlistsCB = completion
         let query = GTLRYouTubeQuery_PlaylistsList.query(withPart: "snippet,contentDetails")
-        //query.additionalHTTPHeaders = ["If-None-Match":"\"Fznwjl6JEQdo1MGvHOGaz_YanRU/mGuSyL7krY5Gf6_NvB5J9Gg68EM\""]
+        if let headerValue = etag {
+            query.additionalHTTPHeaders = ["If-None-Match":headerValue]
+        }
         query.mine = true
         query.maxResults = 50
         service.executeQuery(query,
@@ -49,14 +58,14 @@ class NetworkService: NSObject, PlaylistsFetcher, PlaylistFetcher, Authenticatio
     
     @objc
     func displayPlaylistsResultWithTicket(ticket: GTLRServiceTicket,
-                                       finishedWithObject response: GTLRYouTube_PlaylistListResponse,
-                                       error: NSError?) {
-        if let error = error {
-           print("Error \(error.localizedDescription)")
-           return
+                                          finishedWithObject response: GTLRYouTube_PlaylistListResponse,
+                                          error: NSError?) {
+        if let error = convertToNetworkError(nsError: error) {
+            playlistsCB?(.failure(error))
+            return
         }
         let lists = Playlists(response)
-        playlistsCB?(lists)
+        playlistsCB?(.success(lists))
         playlistsCB = nil
     }
     
@@ -77,17 +86,28 @@ class NetworkService: NSObject, PlaylistsFetcher, PlaylistFetcher, Authenticatio
     func displayPlaylistResultWithTicket(ticket: GTLRServiceTicket,
                                          finishedWithObject response: GTLRYouTube_PlaylistItemListResponse,
                                          error: NSError?) {
-        if let error = error {
-           print("Error \(error.localizedDescription)")
-           return
+        if let error = convertToNetworkError(nsError: error) {
+            playlistCB?(.failure(error))
+            return
         }
         let list = Playlist(response)
-        playlistCB?(list)
+        playlistCB?(.success(list))
         playlistCB = nil
     }
     
     public func setAuthorizer(authorizer: GTMFetcherAuthorizationProtocol?) {
         service.authorizer = authorizer
+    }
+    
+    
+    private func convertToNetworkError(nsError:NSError?) -> NetworkError? {
+        guard let error = nsError else { return nil }
+        if error.description.contains("304") {
+            return .unchangedRecordUseCache
+        } else {
+            print("Search error \(error.localizedDescription)")
+            return .unknown
+        }
     }
 }
 
@@ -107,15 +127,12 @@ extension NetworkService: VideoSearcher {
     func displaySearchResultWithTicket(ticket: GTLRServiceTicket,
                                        finishedWithObject response: GTLRYouTube_SearchListResponse,
                                        error: NSError?) {
-        if let error = error {
-           print("Search error \(error.localizedDescription)")
-           return
+        if let error = convertToNetworkError(nsError: error) {
+            playlistCB?(.failure(error))
+            return
         }
-        
-        print("Got results??")
-        
         let list = Playlist(response)
-        playlistCB?(list)
+        playlistCB?(.success(list))
         playlistCB = nil
     }
 }

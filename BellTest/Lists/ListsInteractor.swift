@@ -28,13 +28,15 @@ class ListsInteractor: ListsInteractorService {
     }
     
     func fetchPlaylist(id: String, completion: @escaping PlaylistClosure) {
-        networkService.fetchPlaylist(id: id, completion: { [weak self] (playlist) in
-            self?.playlistLoader.loadPlaylist(playlist: playlist)
-            completion(playlist)
+        networkService.fetchPlaylist(id: id, completion: { [weak self] (result) in
+            if case .success(let playlist) = result {
+                self?.playlistLoader.loadPlaylist(playlist: playlist)
+            }
+            completion(result)
         })
     }
     
-    func fetchPlaylists(completion: @escaping PlaylistsClosure) {
-        networkService.fetchPlaylists(completion: completion)
+    func fetchPlaylists(etag: String? = nil, completion: @escaping PlaylistsClosure) {
+        networkService.fetchPlaylists(etag: etag, completion: completion)
     }
 }

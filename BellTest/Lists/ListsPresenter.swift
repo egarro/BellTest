@@ -31,9 +31,11 @@ class ListsPresenter: ListsEventHandler {
     }
     
     func didTapOnDisplayDetail(playListInfo info: PlaylistInfo) {
-        listsInteractor.fetchPlaylist(id: info.identifier, completion: { [weak self] (playlist) in
+        listsInteractor.fetchPlaylist(id: info.identifier, completion: { [weak self] (result) in
             self?.listsWireFrame?.listsViewController.stopFetchingResults()
-            self?.listsWireFrame?.presentPlaylistDetailInterface(for: playlist, and: info)
+            if case .success(let playlist) = result {
+                self?.listsWireFrame?.presentPlaylistDetailInterface(for: playlist, and: info)
+            }
         })
     }
     
@@ -42,8 +44,10 @@ class ListsPresenter: ListsEventHandler {
     }
     
     func requestAllPlaylists() {
-        listsInteractor.fetchPlaylists(completion: { [weak self] (playlists) in
-            self?.listsWireFrame?.presentAll(playlists: playlists)
+        listsInteractor.fetchPlaylists(completion: { [weak self] (result) in
+            if case .success(let playlists) = result {
+                self?.listsWireFrame?.presentAll(playlists: playlists)
+            }
         })
     }
 }

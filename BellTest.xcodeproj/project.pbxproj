@@ -49,6 +49,9 @@
 		336B0E4323CF3F63006E3D4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 336B0E4223CF3F63006E3D4D /* Assets.xcassets */; };
 		336B0E4623CF3F63006E3D4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336B0E4423CF3F63006E3D4D /* LaunchScreen.storyboard */; };
 		3378947723EB491F0061AAA8 /* PlaylistConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378947623EB491F0061AAA8 /* PlaylistConverter.swift */; };
+		3378949F23EB8BD30061AAA8 /* BellTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3378949D23EB8BD30061AAA8 /* BellTest.xcdatamodeld */; };
+		337894AC23EBA7030061AAA8 /* DatabaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337894AB23EBA7030061AAA8 /* DatabaseHandler.swift */; };
+		337894AE23EBBDCB0061AAA8 /* NetworkServiceWithCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337894AD23EBBDCB0061AAA8 /* NetworkServiceWithCache.swift */; };
 		3387D79523EA8FF50053023F /* LoadingCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3387D79423EA8FF50053023F /* LoadingCellView.swift */; };
 		F82BD9B567C63E7B170351EF /* Pods_BellTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE6D11C2B49B257E699D3E75 /* Pods_BellTest.framework */; };
 /* End PBXBuildFile section */
@@ -99,6 +102,9 @@
 		336B0E4523CF3F63006E3D4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		336B0E4723CF3F63006E3D4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3378947623EB491F0061AAA8 /* PlaylistConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistConverter.swift; sourceTree = "<group>"; };
+		3378949E23EB8BD30061AAA8 /* BellTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BellTest.xcdatamodel; sourceTree = "<group>"; };
+		337894AB23EBA7030061AAA8 /* DatabaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHandler.swift; sourceTree = "<group>"; };
+		337894AD23EBBDCB0061AAA8 /* NetworkServiceWithCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceWithCache.swift; sourceTree = "<group>"; };
 		3387D79423EA8FF50053023F /* LoadingCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCellView.swift; sourceTree = "<group>"; };
 		9F0EE9E20BD080F63860B028 /* Pods-BellTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BellTest.debug.xcconfig"; path = "Target Support Files/Pods-BellTest/Pods-BellTest.debug.xcconfig"; sourceTree = "<group>"; };
 		DE6D11C2B49B257E699D3E75 /* Pods_BellTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BellTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +187,7 @@
 				3378947623EB491F0061AAA8 /* PlaylistConverter.swift */,
 				3362A36123E4C39C00CD5DA3 /* InifiniteLoopPlaylistHandler.swift */,
 				3368552023E8F388004590B1 /* NetworkService.swift */,
+				337894AD23EBBDCB0061AAA8 /* NetworkServiceWithCache.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -270,6 +277,7 @@
 		336B0E3823CF3F62006E3D4D /* BellTest */ = {
 			isa = PBXGroup;
 			children = (
+				337894A023EB956C0061AAA8 /* Cache */,
 				3368552223E933D6004590B1 /* Extensions */,
 				3362A33D23E3E50200CD5DA3 /* Entities */,
 				3362A33A23E3E48100CD5DA3 /* Models */,
@@ -284,9 +292,18 @@
 				3362A32523E3B86100CD5DA3 /* RootWireframe.swift */,
 				336B0E4223CF3F63006E3D4D /* Assets.xcassets */,
 				336B0E4423CF3F63006E3D4D /* LaunchScreen.storyboard */,
+				3378949D23EB8BD30061AAA8 /* BellTest.xcdatamodeld */,
 				336B0E4723CF3F63006E3D4D /* Info.plist */,
 			);
 			path = BellTest;
+			sourceTree = "<group>";
+		};
+		337894A023EB956C0061AAA8 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				337894AB23EBA7030061AAA8 /* DatabaseHandler.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 		9D07B8BCF7F2E3AEF2953C4A /* Frameworks */ = {
@@ -462,6 +479,7 @@
 				3362A32923E3BA6600CD5DA3 /* LoginWireframe.swift in Sources */,
 				3362A34F23E4A89300CD5DA3 /* SearchViewController.swift in Sources */,
 				3362A33223E3CCC800CD5DA3 /* LoginPresenter.swift in Sources */,
+				3378949F23EB8BD30061AAA8 /* BellTest.xcdatamodeld in Sources */,
 				3362A34823E490FA00CD5DA3 /* ListDetailPresenter.swift in Sources */,
 				3362A33023E3C7D000CD5DA3 /* ListsWireframe.swift in Sources */,
 				3368552423E933EC004590B1 /* UIImageView+downloaded.swift in Sources */,
@@ -477,8 +495,10 @@
 				336B0E3A23CF3F62006E3D4D /* AppDelegate.swift in Sources */,
 				3362A36A23E60FB300CD5DA3 /* ItemCellView.swift in Sources */,
 				3362A36223E4C39C00CD5DA3 /* InifiniteLoopPlaylistHandler.swift in Sources */,
+				337894AE23EBBDCB0061AAA8 /* NetworkServiceWithCache.swift in Sources */,
 				3362A34323E47A2100CD5DA3 /* ListsInteractor.swift in Sources */,
 				3368551F23E8E6E4004590B1 /* NetworkModels.swift in Sources */,
+				337894AC23EBA7030061AAA8 /* DatabaseHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,6 +690,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3378949D23EB8BD30061AAA8 /* BellTest.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3378949E23EB8BD30061AAA8 /* BellTest.xcdatamodel */,
+			);
+			currentVersion = 3378949E23EB8BD30061AAA8 /* BellTest.xcdatamodel */;
+			path = BellTest.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 336B0E2E23CF3F62006E3D4D /* Project object */;
 }

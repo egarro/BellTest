@@ -33,9 +33,11 @@ class SearchPresenter: SearchEventHandler {
     }
     
     func didUpdateSearchTerm(query: String, pageToken: String) {
-        searchInteractor.searchVideo(queryString: query, pageString: pageToken, completion: { [weak self] (playlist) in
-            let videos = self?.converter.convert(playlist: playlist) ?? []
-            self?.searchWireFrame?.presentSearchResults(videos: videos, nextPageToken: playlist.nextPage)
+        searchInteractor.searchVideo(queryString: query, pageString: pageToken, completion: { [weak self] (result) in
+            if case .success(let playlist) = result {
+                let videos = self?.converter.convert(playlist: playlist) ?? []
+                self?.searchWireFrame?.presentSearchResults(videos: videos, nextPageToken: playlist.nextPage)
+            }
         })
     }
 }

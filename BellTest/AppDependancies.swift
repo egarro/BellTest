@@ -18,16 +18,20 @@ class AppDependencies {
     var listDetailWireframe = ListDetailWireframe()
     var searchWireframe = SearchWireframe()
     var playerWireframe = PlayerWireframe()
-    var networkService = NetworkService()
+    var networkService: Networker!
     var sessionManager: SessionManagerType!
     var playlistHandler: PlaylistHandler & PlaylistLoader = InifiniteLoopPlaylistHandler()
+    var databaseHandler: DatabaseHandler = DatabaseHandler()
     
     init() {
+        let basicNetworker = NetworkService()
+        networkService = NetworkServiceNetworkServiceWithCache(decorated: basicNetworker,
+                                                               databaseHandler: databaseHandler)
         configureSessionManager()
         configureWireframeDependancies()
         configurePresenterDependancies()
     }
-    
+        
     func configureSessionManager() {
         sessionManager = SessionManager(authenticationObserver: networkService)
         GIDSignIn.sharedInstance().clientID = "1009694205174-rdrsndbu0pamvijpqi1eccbff6kcrgr1.apps.googleusercontent.com"
