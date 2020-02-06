@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:BellTest/Cache/ETag+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:BellTest/Cache/ETag+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:BellTest/Cache/Blob+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:BellTest/Cache/Blob+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:BellTest.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>
