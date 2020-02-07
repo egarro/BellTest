@@ -8,8 +8,15 @@
 
 import UIKit
 
+var imageCache = NSCache<AnyObject, AnyObject>()
+
 extension UIImageView {
     func downloaded(from url: URL) {
+        if let cacheImage = imageCache.object(forKey: url.absoluteString as AnyObject) as? UIImage {
+//            print("Using cached image...")
+            self.image = cacheImage
+            return
+        }        
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
                   let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
@@ -17,6 +24,7 @@ extension UIImageView {
                   let image = UIImage(data: data)
                   else { return }
             
+            imageCache.setObject(image, forKey: url.absoluteString as AnyObject)
             DispatchQueue.main.async() {
                 self.image = image
             }
