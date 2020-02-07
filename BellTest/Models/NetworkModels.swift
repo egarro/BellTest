@@ -9,6 +9,10 @@
 import Foundation
 import GoogleAPIClientForREST
 
+protocol Cachable {
+    var etag: String { get }
+}
+
 struct PlaylistInfo: Encodable, Decodable  {
     let identifier: String
     let title: String
@@ -23,7 +27,7 @@ struct PlaylistInfo: Encodable, Decodable  {
     }
 }
 
-struct Playlists: Encodable, Decodable {
+struct Playlists: Encodable, Decodable, Cachable {
     let etag: String
     let lists: [PlaylistInfo]
     
@@ -33,8 +37,7 @@ struct Playlists: Encodable, Decodable {
     }
 }
 
-struct Playlist: Encodable, Decodable{
-    
+struct Playlist: Encodable, Decodable, Cachable {
     let etag: String
     let nextPage: String
     let items: [Item]
@@ -60,7 +63,7 @@ struct Playlist: Encodable, Decodable{
     }
 }
 
-struct Item: Encodable, Decodable {
+struct Item: Encodable, Decodable, Cachable {
     let etag: String
     let id: String
     let title: String

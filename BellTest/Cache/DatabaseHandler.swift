@@ -32,14 +32,14 @@ class DatabaseHandler {
 
         do {
             let results = try moc.fetch(request)
-            return results as! [T]
+            return results
         }
         catch {
             print("Error runing query with request: \(error)")
             return []
         }
     }
-
+    
     func deleteRecord(_ object: NSManagedObject) {
         moc.delete(object)
     }
