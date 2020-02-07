@@ -9,7 +9,12 @@
 import Foundation
 import UIKit
 
-class ListDetailWireframe: NSObject {
+protocol ListDetailWireframeInterface: class {
+    func dismissPlaylistDetailInterface()
+    func presentPlayerInterface(for: String)
+}
+
+class ListDetailWireframe: NSObject, ListDetailWireframeInterface {
     var listDetailViewController: ListDetailViewController!
     var listDetailPresenter: ListDetailPresenter?
     var presentedViewController : UIViewController?

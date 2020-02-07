@@ -21,11 +21,11 @@ class AppDependencies {
     var networkService: Networker!
     var sessionManager: SessionManagerType!
     var playlistHandler: PlaylistHandler & PlaylistLoader = InifiniteLoopPlaylistHandler()
-    var databaseHandler: DatabaseHandler = DatabaseHandler()
+    var databaseHandler: DataBaseHandler = DatabaseHandlerImp()
     
     init() {
         let basicNetworker = NetworkService()
-        networkService = NetworkServiceNetworkServiceWithCache(decorated: basicNetworker,
+        networkService = NetworkServiceWithCache(decorated: basicNetworker,
                                                                databaseHandler: databaseHandler)
         configureSessionManager()
         configureWireframeDependancies()

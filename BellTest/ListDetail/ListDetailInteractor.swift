@@ -8,7 +8,11 @@
 
 import Foundation
 
-class ListDetailInteractor {
+protocol ListDetailInteractorInput {
+    func moveListTo(videoID: String)
+}
+
+class ListDetailInteractor: ListDetailInteractorInput {
     var playlistLoader: PlaylistLoader
     
     init(playlistLoader: PlaylistLoader) {

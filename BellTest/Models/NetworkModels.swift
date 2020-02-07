@@ -25,6 +25,13 @@ struct PlaylistInfo: Encodable, Decodable  {
         iconURL = pl.snippet?.thumbnails?.defaultProperty?.url ?? ""
         identifier = pl.identifier ?? ""
     }
+    
+    init() {
+        identifier = ""
+        title = ""
+        numberOfItems = -1
+        iconURL = ""
+    }
 }
 
 struct Playlists: Encodable, Decodable, Cachable {
@@ -34,6 +41,11 @@ struct Playlists: Encodable, Decodable, Cachable {
     init(_ pls: GTLRYouTube_PlaylistListResponse) {
         lists = pls.items?.map({ PlaylistInfo.init($0) }) ?? []
         etag = pls.eTag ?? ""
+    }
+    
+    init() {
+        etag = ""
+        lists = []
     }
 }
 
@@ -60,6 +72,12 @@ struct Playlist: Encodable, Decodable, Cachable {
         } else {
             items = []
         }
+    }
+    
+    init() {
+        etag = ""
+        nextPage = ""
+        items = []
     }
 }
 
@@ -97,5 +115,17 @@ struct Item: Encodable, Decodable, Cachable {
         playlistId = ""
         position = -1
         duration = "N/A"
+    }
+    
+    init() {
+        etag = ""
+        id = ""
+        title = ""
+        playlistId = ""
+        position = -1
+        iconURL = ""
+        videoId = ""
+        author = ""
+        duration = ""
     }
 }

@@ -14,11 +14,11 @@ protocol ListDetailEventHandler {
 }
 
 class ListDetailPresenter: ListDetailEventHandler {
-    weak var listDetailWireFrame: ListDetailWireframe?
-    var listDetailInteractor: ListDetailInteractor
+    weak var listDetailWireFrame: ListDetailWireframeInterface?
+    var listDetailInteractor: ListDetailInteractorInput
     
-    init(wireFrame: ListDetailWireframe,
-         interactor: ListDetailInteractor) {
+    init(wireFrame: ListDetailWireframeInterface,
+         interactor: ListDetailInteractorInput) {
         self.listDetailWireFrame = wireFrame
         self.listDetailInteractor = interactor
     }

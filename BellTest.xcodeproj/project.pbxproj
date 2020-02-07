@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0072552FE6715E96515E5DA2 /* Pods_BellTest_BellTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9C6A967095646DF57433BC /* Pods_BellTest_BellTestTests.framework */; };
 		3312C73D23E6758600DB1225 /* ListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3312C73C23E6758600DB1225 /* ListHeaderView.xib */; };
 		3312C73F23E6759500DB1225 /* ListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3312C73E23E6759500DB1225 /* ListHeaderView.swift */; };
 		335D619823E720A200B1CDF0 /* PlayerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335D619723E720A200B1CDF0 /* PlayerControlsView.swift */; };
@@ -50,14 +51,30 @@
 		336B0E4623CF3F63006E3D4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336B0E4423CF3F63006E3D4D /* LaunchScreen.storyboard */; };
 		3378947723EB491F0061AAA8 /* PlaylistConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378947623EB491F0061AAA8 /* PlaylistConverter.swift */; };
 		3378949F23EB8BD30061AAA8 /* BellTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3378949D23EB8BD30061AAA8 /* BellTest.xcdatamodeld */; };
-		337894AC23EBA7030061AAA8 /* DatabaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337894AB23EBA7030061AAA8 /* DatabaseHandler.swift */; };
+		337894AC23EBA7030061AAA8 /* DatabaseHandlerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337894AB23EBA7030061AAA8 /* DatabaseHandlerImp.swift */; };
 		337894AE23EBBDCB0061AAA8 /* NetworkServiceWithCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337894AD23EBBDCB0061AAA8 /* NetworkServiceWithCache.swift */; };
 		337894B823ECF3250061AAA8 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337894B723ECF3250061AAA8 /* DateHelper.swift */; };
 		3387D79523EA8FF50053023F /* LoadingCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3387D79423EA8FF50053023F /* LoadingCellView.swift */; };
+		33D69FF923EDA8950021E4A5 /* InifiniteLoopPlaylistHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D69FF823EDA8950021E4A5 /* InifiniteLoopPlaylistHandlerTests.swift */; };
+		33D6A00123EDADA30021E4A5 /* DateHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D6A00023EDADA30021E4A5 /* DateHelperTests.swift */; };
+		33D6A00323EDBCD40021E4A5 /* ListDetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D6A00223EDBCD40021E4A5 /* ListDetailInteractorTests.swift */; };
+		33D6A00523EDC0240021E4A5 /* ListDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D6A00423EDC0240021E4A5 /* ListDetailPresenterTests.swift */; };
+		33D6A00723EDE2220021E4A5 /* NetworkCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D6A00623EDE2220021E4A5 /* NetworkCacheTests.swift */; };
 		F82BD9B567C63E7B170351EF /* Pods_BellTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE6D11C2B49B257E699D3E75 /* Pods_BellTest.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		33D69FFB23EDA8950021E4A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 336B0E2E23CF3F62006E3D4D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 336B0E3523CF3F62006E3D4D;
+			remoteInfo = BellTest;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		06C82ED1C0C71B791AD943E3 /* Pods-BellTest-BellTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BellTest-BellTestTests.release.xcconfig"; path = "Target Support Files/Pods-BellTest-BellTestTests/Pods-BellTest-BellTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		1C81909344DED3E34CD0B42B /* Pods-BellTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BellTest.release.xcconfig"; path = "Target Support Files/Pods-BellTest/Pods-BellTest.release.xcconfig"; sourceTree = "<group>"; };
 		3312C73C23E6758600DB1225 /* ListHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListHeaderView.xib; sourceTree = "<group>"; };
 		3312C73E23E6759500DB1225 /* ListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHeaderView.swift; sourceTree = "<group>"; };
@@ -104,11 +121,20 @@
 		336B0E4723CF3F63006E3D4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3378947623EB491F0061AAA8 /* PlaylistConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistConverter.swift; sourceTree = "<group>"; };
 		3378949E23EB8BD30061AAA8 /* BellTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BellTest.xcdatamodel; sourceTree = "<group>"; };
-		337894AB23EBA7030061AAA8 /* DatabaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHandler.swift; sourceTree = "<group>"; };
+		337894AB23EBA7030061AAA8 /* DatabaseHandlerImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHandlerImp.swift; sourceTree = "<group>"; };
 		337894AD23EBBDCB0061AAA8 /* NetworkServiceWithCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceWithCache.swift; sourceTree = "<group>"; };
 		337894B723ECF3250061AAA8 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		3387D79423EA8FF50053023F /* LoadingCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCellView.swift; sourceTree = "<group>"; };
+		33D69FF623EDA8950021E4A5 /* BellTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BellTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		33D69FF823EDA8950021E4A5 /* InifiniteLoopPlaylistHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InifiniteLoopPlaylistHandlerTests.swift; sourceTree = "<group>"; };
+		33D69FFA23EDA8950021E4A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33D6A00023EDADA30021E4A5 /* DateHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelperTests.swift; sourceTree = "<group>"; };
+		33D6A00223EDBCD40021E4A5 /* ListDetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailInteractorTests.swift; sourceTree = "<group>"; };
+		33D6A00423EDC0240021E4A5 /* ListDetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailPresenterTests.swift; sourceTree = "<group>"; };
+		33D6A00623EDE2220021E4A5 /* NetworkCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCacheTests.swift; sourceTree = "<group>"; };
+		7B9C6A967095646DF57433BC /* Pods_BellTest_BellTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BellTest_BellTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F0EE9E20BD080F63860B028 /* Pods-BellTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BellTest.debug.xcconfig"; path = "Target Support Files/Pods-BellTest/Pods-BellTest.debug.xcconfig"; sourceTree = "<group>"; };
+		CB077C112479EC7A73FC488A /* Pods-BellTest-BellTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BellTest-BellTestTests.debug.xcconfig"; path = "Target Support Files/Pods-BellTest-BellTestTests/Pods-BellTest-BellTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DE6D11C2B49B257E699D3E75 /* Pods_BellTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BellTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -118,6 +144,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F82BD9B567C63E7B170351EF /* Pods_BellTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33D69FF323EDA8950021E4A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0072552FE6715E96515E5DA2 /* Pods_BellTest_BellTestTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +297,7 @@
 			children = (
 				3368551A23E7AF3D004590B1 /* GoogleService-Info.plist */,
 				336B0E3823CF3F62006E3D4D /* BellTest */,
+				33D69FF723EDA8950021E4A5 /* BellTestTests */,
 				336B0E3723CF3F62006E3D4D /* Products */,
 				D7CD43DF673856B5AA7EEC97 /* Pods */,
 				9D07B8BCF7F2E3AEF2953C4A /* Frameworks */,
@@ -273,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				336B0E3623CF3F62006E3D4D /* BellTest.app */,
+				33D69FF623EDA8950021E4A5 /* BellTestTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -304,15 +340,29 @@
 		337894A023EB956C0061AAA8 /* Cache */ = {
 			isa = PBXGroup;
 			children = (
-				337894AB23EBA7030061AAA8 /* DatabaseHandler.swift */,
+				337894AB23EBA7030061AAA8 /* DatabaseHandlerImp.swift */,
 			);
 			path = Cache;
+			sourceTree = "<group>";
+		};
+		33D69FF723EDA8950021E4A5 /* BellTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				33D69FF823EDA8950021E4A5 /* InifiniteLoopPlaylistHandlerTests.swift */,
+				33D6A00023EDADA30021E4A5 /* DateHelperTests.swift */,
+				33D6A00223EDBCD40021E4A5 /* ListDetailInteractorTests.swift */,
+				33D6A00423EDC0240021E4A5 /* ListDetailPresenterTests.swift */,
+				33D6A00623EDE2220021E4A5 /* NetworkCacheTests.swift */,
+				33D69FFA23EDA8950021E4A5 /* Info.plist */,
+			);
+			path = BellTestTests;
 			sourceTree = "<group>";
 		};
 		9D07B8BCF7F2E3AEF2953C4A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				DE6D11C2B49B257E699D3E75 /* Pods_BellTest.framework */,
+				7B9C6A967095646DF57433BC /* Pods_BellTest_BellTestTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -322,6 +372,8 @@
 			children = (
 				9F0EE9E20BD080F63860B028 /* Pods-BellTest.debug.xcconfig */,
 				1C81909344DED3E34CD0B42B /* Pods-BellTest.release.xcconfig */,
+				CB077C112479EC7A73FC488A /* Pods-BellTest-BellTestTests.debug.xcconfig */,
+				06C82ED1C0C71B791AD943E3 /* Pods-BellTest-BellTestTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -349,6 +401,27 @@
 			productReference = 336B0E3623CF3F62006E3D4D /* BellTest.app */;
 			productType = "com.apple.product-type.application";
 		};
+		33D69FF523EDA8950021E4A5 /* BellTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33D69FFF23EDA8950021E4A5 /* Build configuration list for PBXNativeTarget "BellTestTests" */;
+			buildPhases = (
+				83B5606DF90FD88C9BE51F3B /* [CP] Check Pods Manifest.lock */,
+				33D69FF223EDA8950021E4A5 /* Sources */,
+				33D69FF323EDA8950021E4A5 /* Frameworks */,
+				33D69FF423EDA8950021E4A5 /* Resources */,
+				47DD795EE3407D6211BF8C4F /* [CP] Embed Pods Frameworks */,
+				9F3A96A0249D217FF6AF1A22 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				33D69FFC23EDA8950021E4A5 /* PBXTargetDependency */,
+			);
+			name = BellTestTests;
+			productName = BellTestTests;
+			productReference = 33D69FF623EDA8950021E4A5 /* BellTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -361,6 +434,10 @@
 				TargetAttributes = {
 					336B0E3523CF3F62006E3D4D = {
 						CreatedOnToolsVersion = 11.3;
+					};
+					33D69FF523EDA8950021E4A5 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 336B0E3523CF3F62006E3D4D;
 					};
 				};
 			};
@@ -378,6 +455,7 @@
 			projectRoot = "";
 			targets = (
 				336B0E3523CF3F62006E3D4D /* BellTest */,
+				33D69FF523EDA8950021E4A5 /* BellTestTests */,
 			);
 		};
 /* End PBXProject section */
@@ -394,6 +472,13 @@
 				335D619A23E720AF00B1CDF0 /* PlayerControlsView.xib in Resources */,
 				336B0E4323CF3F63006E3D4D /* Assets.xcassets in Resources */,
 				3362A36C23E6101200CD5DA3 /* ItemCellView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33D69FF423EDA8950021E4A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +524,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BellTest/Pods-BellTest-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		47DD795EE3407D6211BF8C4F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BellTest-BellTestTests/Pods-BellTest-BellTestTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BellTest-BellTestTests/Pods-BellTest-BellTestTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BellTest-BellTestTests/Pods-BellTest-BellTestTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		74360D3C9CAFFE58C89F20A0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -454,6 +556,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BellTest/Pods-BellTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		83B5606DF90FD88C9BE51F3B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BellTest-BellTestTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F3A96A0249D217FF6AF1A22 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BellTest-BellTestTests/Pods-BellTest-BellTestTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BellTest-BellTestTests/Pods-BellTest-BellTestTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BellTest-BellTestTests/Pods-BellTest-BellTestTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -502,11 +643,31 @@
 				337894AE23EBBDCB0061AAA8 /* NetworkServiceWithCache.swift in Sources */,
 				3362A34323E47A2100CD5DA3 /* ListsInteractor.swift in Sources */,
 				3368551F23E8E6E4004590B1 /* NetworkModels.swift in Sources */,
-				337894AC23EBA7030061AAA8 /* DatabaseHandler.swift in Sources */,
+				337894AC23EBA7030061AAA8 /* DatabaseHandlerImp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33D69FF223EDA8950021E4A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33D6A00723EDE2220021E4A5 /* NetworkCacheTests.swift in Sources */,
+				33D6A00323EDBCD40021E4A5 /* ListDetailInteractorTests.swift in Sources */,
+				33D69FF923EDA8950021E4A5 /* InifiniteLoopPlaylistHandlerTests.swift in Sources */,
+				33D6A00123EDADA30021E4A5 /* DateHelperTests.swift in Sources */,
+				33D6A00523EDC0240021E4A5 /* ListDetailPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		33D69FFC23EDA8950021E4A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 336B0E3523CF3F62006E3D4D /* BellTest */;
+			targetProxy = 33D69FFB23EDA8950021E4A5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		336B0E4423CF3F63006E3D4D /* LaunchScreen.storyboard */ = {
@@ -672,6 +833,48 @@
 			};
 			name = Release;
 		};
+		33D69FFD23EDA8950021E4A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB077C112479EC7A73FC488A /* Pods-BellTest-BellTestTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KK9GR7E87Y;
+				INFOPLIST_FILE = BellTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.transcriptics.BellTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BellTest.app/BellTest";
+			};
+			name = Debug;
+		};
+		33D69FFE23EDA8950021E4A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06C82ED1C0C71B791AD943E3 /* Pods-BellTest-BellTestTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KK9GR7E87Y;
+				INFOPLIST_FILE = BellTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.transcriptics.BellTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BellTest.app/BellTest";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -689,6 +892,15 @@
 			buildConfigurations = (
 				336B0E4B23CF3F63006E3D4D /* Debug */,
 				336B0E4C23CF3F63006E3D4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33D69FFF23EDA8950021E4A5 /* Build configuration list for PBXNativeTarget "BellTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33D69FFD23EDA8950021E4A5 /* Debug */,
+				33D69FFE23EDA8950021E4A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
