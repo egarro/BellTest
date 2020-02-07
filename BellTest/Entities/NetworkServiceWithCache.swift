@@ -15,6 +15,7 @@ typealias Networker = NSObject & PlaylistsFetcher & PlaylistFetcher & Authentica
 class NetworkServiceNetworkServiceWithCache: Networker {
     let playlistsStorageKey = "playlists.etag"
     let playlistStorageKeyPrefix = "playlist.etag."
+    let searchStorageKeyPrefix = "search.etag."
     
     let decorated:Networker
     let db: DatabaseHandler
@@ -87,18 +88,53 @@ class NetworkServiceNetworkServiceWithCache: Networker {
             if lastDownloaded != nil {
                 self?.updatePlaylistDBRecord(with: playlist, for: cacheTableID)
             } else {
-                self?.createPlaylistDBRecord(for: playlist, with: cacheTableID)
+                self?.createPlaylistDBRecord(for: playlist, with: cacheTableID, withEtag: false)
             }
             completion(result)
         })
     }
     
+    func searchVideo(etag: String? = nil,
+                     queryString: String,
+                     pageString: String,
+                     completion: @escaping PlaylistClosure) {
+        let cacheTableID = searchStorageKeyPrefix + queryString + "." + pageString
+        let headerValue = checkETagValueForKey(string: cacheTableID)
+        
+        self.decorated.searchVideo(etag: headerValue,
+                                   queryString: queryString,
+                                   pageString: pageString,
+                                   completion: { [weak self] (result) in
+                        guard let `self` = self else { return }
+                        guard case .failure(let error) = result else {
+                        //Handle success here:
+                            _ = result.map({ [weak self] (playlist) in
+                                    guard let `self` = self else { return }
+                                    self.createPlaylistDBRecord(for: playlist, with: cacheTableID, withEtag: true)
+                                })
+                            completion(result)
+                            return
+                        }
+                        // Handle errors here:
+                        if case error = NetworkError.unchangedRecordUseCache {
+                            let query = NSPredicate(format: "key == %@", cacheTableID)
+                           if let obj = self.db.query(ETag.self, search: query).first,
+                              let data = obj.relationship?.data,
+                              let playlist = try? self.decoder.decode(Playlist.self, from: data) {
+                                completion(.success(playlist))
+                           } else {
+                                print("Can't find or decode search Playlist even though etag found?!")
+                                completion(.failure(.undecodableETag))
+                           }
+                           return
+                        }
+                        completion(result)
+        })
+    }
+
+    
     func setAuthorizer(authorizer: GTMFetcherAuthorizationProtocol?) {
         self.decorated.setAuthorizer(authorizer: authorizer)
-    }
-    
-    func searchVideo(queryString: String, pageString: String, completion: @escaping PlaylistClosure) {
-        self.decorated.searchVideo(queryString: queryString, pageString: pageString, completion: completion)
     }
     
     private func checkETagValueForKey(string: String) -> String? {
@@ -120,13 +156,13 @@ class NetworkServiceNetworkServiceWithCache: Networker {
     }
     
 //Cache based on downloaded date:
-    private func createPlaylistDBRecord(for record: Playlist, with tableId: String) {
+    private func createPlaylistDBRecord(for record: Playlist, with tableId: String, withEtag: Bool) {
         let data = try? encoder.encode(record)
         let blob = db.addRecord(Blob.self)
         blob.data = data
         let new = db.addRecord(ETag.self)
         new.key = tableId
-        new.headerValue = dateHelper.dateString()
+        new.headerValue = withEtag ? record.etag : dateHelper.dateString()
         new.relationship = blob
 
         db.saveDatabase()

@@ -15,7 +15,13 @@ class SearchInteractor: VideoSearcher {
         self.networkService = networkService
     }
        
-    func searchVideo(queryString: String, pageString: String, completion: @escaping PlaylistClosure) {
-        networkService.searchVideo(queryString: queryString, pageString: pageString, completion: completion)
+    func searchVideo(etag: String? = nil,
+                     queryString: String,
+                     pageString: String,
+                     completion: @escaping PlaylistClosure) {
+        networkService.searchVideo(etag: etag,
+                                   queryString: queryString,
+                                   pageString: pageString,
+                                   completion: completion)
     }
 }

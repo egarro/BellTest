@@ -148,10 +148,11 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 // MARK: UISearchResultsUpdating Methods
     
     func updateSearchResults(for searchController: UISearchController) {
-        guard let query = searchController.searchBar.text else {
+        guard let query = searchController.searchBar.text, query.count > 3 else {
             fetchingResults = false
             return
         }
+                
         fetchingResults = true
         self.videos = []
         eventHandler?.didUpdateSearchTerm(query: query, pageToken: "")
